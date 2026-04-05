@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Davis Ardo Bareto – Data Analyst & Power BI Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --landing-background:       #ffffff;
+      --landing-foreground:       #f8fafc;
+      --landing-primary:          #2563eb;
+      --landing-hover:            #1d4ed8;
+      --landing-accent:           #3b82f6;
+      --landing-text:             #0f172a;
+      --landing-text-muted:       #64748b;
+      --landing-secondary:        #e2e8f0;
+      --landing-focus:            #2563eb;
+      --landing-overlay:          rgba(37,99,235,0.08);
+      --landing-gradient-primary: linear-gradient(135deg,#2563eb,#1d4ed8);
+      --landing-gradient-accent:  linear-gradient(90deg,#2563eb,#60a5fa);
+      --landing-gradient-secondary: linear-gradient(180deg,#2563eb 0%,#e2e8f0 100%);
+      --landing-gradient-overlay: radial-gradient(circle,rgba(37,99,235,0.12),transparent 70%);
+      --landing-font-family-primary:   'Inter','Segoe UI',sans-serif;
+      --landing-font-family-secondary: 'Plus Jakarta Sans','Segoe UI',sans-serif;
+      --landing-font-family-special:   'Inter',monospace;
+      --landing-radius-md:   10px;
+      --landing-radius-sm:   6px;
+      --landing-radius-full: 9999px;
+      --landing-shadow-sm:   0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --landing-shadow-md:   0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+      --landing-shadow-lg:   0 16px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+      --landing-shadow-xl:   0 24px 56px rgba(37,99,235,0.14);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; padding: 0;
+      background-color: var(--landing-background);
+      color: var(--landing-text);
+      font-family: var(--landing-font-family-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+
+    /* NAVBAR */
+    .navbar-section {
+      background-color: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      border-bottom: 1px solid var(--landing-secondary);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+    .navbar-container {
+      width: 100%; max-width: 1200px;
+      margin: 0 auto; padding: 0 32px;
+      height: 68px;
+      display: flex; flex-direction: row;
+      justify-content: space-between; align-items: center;
+    }
+    .navbar-brand {
+      font-family: var(--landing-font-family-secondary);
+      color: var(--landing-text);
+      font-size: 20px; font-weight: 800;
+      text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+      letter-spacing: -0.3px;
+    }
+    .navbar-brand::before {
+      content: '';
+      width: 8px; height: 8px;
+      background: var(--landing-gradient-primary);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .navbar-menu {
+      display: flex; flex-direction: row;
+      align-items: center; gap: 8px;
+    }
+    .navbar-links {
+      display: flex; flex-direction: row;
+      gap: 4px; align-items: center;
+    }
+    .navbar-links a {
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text-muted);
+      text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--landing-radius-sm);
+      transition: all 0.2s ease;
+    }
+    .navbar-links a:hover {
+      color: var(--landing-primary);
+      background: rgba(37,99,235,0.06);
+    }
+    .navbar-actions {
+      display: flex; flex-direction: row;
+      gap: 8px; align-items: center;
+      margin-left: 16px;
+    }
+    .btn-outline {
+      display: flex; flex-direction: row;
+      align-items: center; gap: 6px;
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text);
+      text-decoration: none;
+      font-size: 13px; font-weight: 600;
+      padding: 7px 14px;
+      border: 1.5px solid var(--landing-secondary);
+      background-color: var(--landing-background);
+      border-radius: var(--landing-radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-outline:hover {
+      border-color: var(--landing-primary);
+      color: var(--landing-primary);
+      background: rgba(37,99,235,0.04);
+    }
+    .btn-outline svg { flex-shrink: 0; }
+    .lang-switch {
+      display: flex; flex-direction: row;
+      align-items: center;
+      border: 1.5px solid var(--landing-secondary);
+      border-radius: var(--landing-radius-sm);
+      overflow: hidden;
+      background: var(--landing-foreground);
+    }
+    .lang-btn {
+      background: transparent; border: none;
+      color: var(--landing-text-muted);
+      font-family: var(--landing-font-family-primary);
+      font-size: 12px; font-weight: 600;
+      padding: 6px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      line-height: 1; display: block;
+      letter-spacing: 0.3px;
+    }
+    .lang-btn.active {
+      background: var(--landing-primary);
+      color: #fff;
+    }
+    .lang-btn:hover:not(.active) {
+      color: var(--landing-primary);
+      background: rgba(37,99,235,0.06);
+    }
+    .navbar-toggle {
+      display: none; flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: 1.5px solid var(--landing-secondary);
+      border-radius: var(--landing-radius-sm);
+      cursor: pointer; padding: 8px;
+    }
+    .navbar-toggle span {
+      display: block; width: 22px; height: 2px;
+      background-color: var(--landing-text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    @media (max-width: 992px) {
+      .navbar-container { padding: 0 20px; height: 60px; }
+      .navbar-toggle { display: flex; }
+      .navbar-menu {
+        display: none; flex-direction: column;
+        width: 100%; padding: 16px 20px 20px;
+        gap: 16px; align-items: flex-start;
+        border-top: 1px solid var(--landing-secondary);
+        background: #fff;
+      }
+      .navbar-menu.is-open { display: flex; }
+      .navbar-links { flex-direction: column; align-items: flex-start; width: 100%; gap: 4px; }
+      .navbar-links a { padding: 8px 12px; width: 100%; }
+      .navbar-actions { flex-direction: row; align-items: center; width: 100%; flex-wrap: wrap; margin-left: 0; gap: 8px; }
+    }
+
+    /* HERO */
+    .hero-section {
+      background-color: var(--landing-background);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 70% 50%, rgba(37,99,235,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 10% 80%, rgba(96,165,250,0.05) 0%, transparent 50%);
+      color: var(--landing-text);
+      font-family: var(--landing-font-family-primary);
+      padding: 100px 32px 80px;
+      min-height: 90vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 100%; overflow: hidden; position: relative;
+    }
+    .hero-container {
+      display: flex; flex-direction: column;
+      gap: 48px; max-width: 1200px; width: 100%;
+      align-items: center; position: relative; z-index: 1;
+    }
+    @media (min-width: 992px) {
+      .hero-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; gap: 64px;
+      }
+    }
+    .hero-content {
+      display: flex; flex-direction: column;
+      gap: 24px; width: 100%; max-width: 580px;
+      animation: fadeUp 0.7s ease forwards;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(37,99,235,0.08);
+      border: 1px solid rgba(37,99,235,0.15);
+      color: var(--landing-primary);
+      font-size: 13px; font-weight: 600;
+      padding: 6px 14px; border-radius: var(--landing-radius-full);
+      width: fit-content; letter-spacing: 0.2px;
+    }
+    .hero-badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--landing-primary);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.5; transform: scale(0.85); }
+    }
+    .hero-title {
+      font-family: var(--landing-font-family-secondary);
+      font-size: 44px; line-height: 1.15;
+      margin: 0; color: var(--landing-text);
+      font-weight: 800; letter-spacing: -1.5px;
+    }
+    @media (min-width: 768px) { .hero-title { font-size: 56px; } }
+    .hero-title .highlight {
+      display: block;
+      font-size: 24px; font-weight: 600;
+      letter-spacing: -0.3px;
+      margin-top: 10px;
+      background: var(--landing-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    @media (min-width: 768px) { .hero-title .highlight { font-size: 30px; } }
+    .hero-description {
+      font-size: 16px; line-height: 1.75;
+      color: var(--landing-text-muted);
+      margin: 0; max-width: 500px;
+    }
+    .hero-actions {
+      display: flex; flex-direction: column;
+      gap: 12px; margin-top: 8px; width: 100%;
+    }
+    @media (min-width: 480px) { .hero-actions { flex-direction: row; width: auto; } }
+    .btn {
+      display: inline-flex; flex-direction: row;
+      align-items: center; justify-content: center;
+      padding: 13px 28px;
+      font-family: var(--landing-font-family-primary);
+      font-size: 14px; font-weight: 600;
+      text-decoration: none; border-radius: var(--landing-radius-md);
+      transition: all 0.25s ease;
+      cursor: pointer; text-align: center;
+      border: 2px solid transparent;
+      letter-spacing: 0.1px;
+    }
+    .btn-primary {
+      background: var(--landing-gradient-primary);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.30);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(37,99,235,0.38);
+    }
+    .btn-secondary {
+      background: var(--landing-background);
+      color: var(--landing-primary);
+      border-color: var(--landing-secondary);
+      box-shadow: var(--landing-shadow-sm);
+    }
+    .btn-secondary:hover {
+      border-color: var(--landing-primary);
+      background: rgba(37,99,235,0.04);
+      transform: translateY(-2px);
+    }
+    .hero-image-wrapper {
+      position: relative;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      width: 100%; max-width: 420px;
+      animation: fadeUp 0.7s ease forwards;
+      animation-delay: 0.15s; opacity: 0;
+      flex-shrink: 0;
+    }
+    .glow-effect {
+      position: absolute;
+      width: 110%; height: 110%;
+      background: radial-gradient(circle, rgba(37,99,235,0.15), transparent 70%);
+      filter: blur(40px); z-index: 0;
+      border-radius: 50%; top: -5%; left: -5%;
+    }
+    .profile-img {
+      position: relative; z-index: 1;
+      width: 100%; height: auto;
+      object-fit: cover; aspect-ratio: 4/5;
+      display: block;
+      border-radius: 24px;
+      padding: 0;
+      box-shadow: var(--landing-shadow-xl);
+      border: 4px solid #fff;
+    }
+    .hero-stats {
+      display: flex; gap: 32px;
+      padding-top: 8px;
+    }
+    .hero-stat { display: flex; flex-direction: column; }
+    .hero-stat-num {
+      font-size: 26px; font-weight: 800;
+      color: var(--landing-primary);
+      font-family: var(--landing-font-family-secondary);
+      letter-spacing: -0.5px; line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: 12px; color: var(--landing-text-muted);
+      font-weight: 500; margin-top: 4px;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* SECTION SHARED */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700;
+      color: var(--landing-primary);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .section-label::before {
+      content: '';
+      width: 20px; height: 2px;
+      background: var(--landing-primary);
+      border-radius: 2px;
+    }
+
+    /* SKILLS */
+    .skills-section {
+      background-color: var(--landing-foreground);
+      padding: 96px 32px;
+      display: flex; flex-direction: column;
+      align-items: center; width: 100%;
+      position: relative; overflow: hidden;
+    }
+    .skills-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg,transparent,var(--landing-secondary),transparent);
+    }
+    .skills-bg-glow {
+      position: absolute; width: 500px; height: 500px;
+      background: radial-gradient(circle,rgba(37,99,235,0.06),transparent 70%);
+      border-radius: 50%;
+      top: -200px; right: -100px;
+      pointer-events: none; z-index: 0;
+    }
+    .skills-container {
+      max-width: 1200px; width: 100%;
+      display: flex; flex-direction: column;
+      gap: 56px; z-index: 1;
+    }
+    .skills-header {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      gap: 16px; max-width: 640px; margin: 0 auto;
+    }
+    .skills-title {
+      font-family: var(--landing-font-family-secondary);
+      color: var(--landing-text);
+      font-size: 40px; font-weight: 800;
+      line-height: 1.15; margin: 0; letter-spacing: -1px;
+    }
+    .skills-title-highlight {
+      background: var(--landing-gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .skills-description {
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text-muted);
+      font-size: 16px; line-height: 1.7; margin: 0;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px; width: 100%;
+    }
+    .skill-card {
+      background-color: var(--landing-background);
+      border: 1px solid var(--landing-secondary);
+      border-radius: 16px; padding: 28px;
+      display: flex; flex-direction: column;
+      align-items: flex-start; gap: 20px;
+      transition: all 0.3s ease;
+      position: relative; overflow: hidden;
+      box-shadow: var(--landing-shadow-sm);
+    }
+    .skill-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: var(--landing-gradient-primary);
+      opacity: 0; transition: opacity 0.3s ease; z-index: 0;
+    }
+    .skill-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--landing-gradient-primary);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(37,99,235,0.2);
+      box-shadow: var(--landing-shadow-lg);
+    }
+    .skill-card:hover::before { opacity: 0.02; }
+    .skill-card:hover::after  { opacity: 1; }
+    .skill-icon-wrapper {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: rgba(37,99,235,0.08);
+      display: flex; align-items: center;
+      justify-content: center;
+      color: var(--landing-primary);
+      z-index: 1;
+      border: 1px solid rgba(37,99,235,0.12);
+      transition: all 0.3s ease;
+    }
+    .skill-card:hover .skill-icon-wrapper {
+      background: var(--landing-primary);
+      color: #fff; border-color: var(--landing-primary);
+    }
+    .skill-icon-wrapper svg {
+      width: 26px; height: 26px; fill: currentColor;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover .skill-icon-wrapper svg { transform: scale(1.1); }
+    .skill-content {
+      display: flex; flex-direction: column;
+      gap: 6px; z-index: 1; width: 100%;
+    }
+    .skill-name {
+      font-family: var(--landing-font-family-secondary);
+      color: var(--landing-text);
+      font-size: 17px; font-weight: 700; margin: 0;
+    }
+    .skill-progress-bg {
+      width: 100%; height: 5px;
+      background-color: var(--landing-secondary);
+      border-radius: 3px; margin-top: 12px; overflow: hidden;
+    }
+    .skill-progress-bar {
+      height: 100%;
+      background: var(--landing-gradient-primary);
+      border-radius: 3px; width: 0;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    @media (max-width: 768px) {
+      .skills-section { padding: 72px 20px; }
+      .skills-title { font-size: 32px; }
+      .skills-container { gap: 40px; }
+      .skills-grid { grid-template-columns: 1fr; }
+    }
+
+    /* PROJECTS */
+    .featured-projects-section {
+      background-color: var(--landing-background);
+      padding: 96px 32px;
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text);
+      display: flex; flex-direction: column;
+      align-items: center; overflow: hidden;
+    }
+    .projects-container {
+      max-width: 1200px; width: 100%;
+      display: flex; flex-direction: column; gap: 56px;
+    }
+    .projects-header {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      gap: 16px; max-width: 640px; width: 100%; margin: 0 auto;
+    }
+    .projects-title {
+      font-family: var(--landing-font-family-secondary);
+      font-size: 40px; font-weight: 800;
+      color: var(--landing-text); margin: 0;
+      line-height: 1.15; letter-spacing: -1px;
+    }
+    .projects-description {
+      font-size: 16px; color: var(--landing-text-muted);
+      margin: 0; line-height: 1.7;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px; width: 100%;
+    }
+    @keyframes fadeUpCard {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .project-card {
+      display: flex; flex-direction: column;
+      background-color: var(--landing-background);
+      border: 1px solid var(--landing-secondary);
+      border-radius: 20px; overflow: hidden;
+      transition: all 0.3s ease;
+      text-decoration: none; opacity: 0;
+      animation: fadeUpCard 0.6s ease forwards;
+      box-shadow: var(--landing-shadow-sm);
+    }
+    .project-card:nth-child(1) { animation-delay: 0.05s; }
+    .project-card:nth-child(2) { animation-delay: 0.15s; }
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(37,99,235,0.2);
+      box-shadow: var(--landing-shadow-lg);
+    }
+    .project-image-container {
+      width: 100%; height: 220px;
+      position: relative; overflow: hidden;
+      background-color: var(--landing-foreground);
+    }
+    .project-image-container::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: linear-gradient(to bottom,transparent 40%,rgba(15,23,42,0.06));
+      transition: opacity 0.3s ease; pointer-events: none;
+    }
+    .project-card:hover .project-image-container::after { opacity: 0; }
+    .project-image {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-image { transform: scale(1.05); }
+    .project-content {
+      display: flex; flex-direction: column;
+      padding: 28px; gap: 16px; flex-grow: 1;
+    }
+    .project-title {
+      font-family: var(--landing-font-family-secondary);
+      font-size: 18px; font-weight: 700;
+      color: var(--landing-text); margin: 0; line-height: 1.4;
+    }
+    .project-details {
+      font-size: 14px; color: var(--landing-text-muted);
+      margin: 0; line-height: 1.7; flex-grow: 1;
+    }
+    .project-tags {
+      display: flex; flex-direction: row;
+      flex-wrap: wrap; gap: 8px; margin-top: 4px;
+    }
+    .project-tag {
+      font-family: var(--landing-font-family-primary);
+      font-size: 11px; font-weight: 600;
+      color: var(--landing-primary);
+      background: rgba(37,99,235,0.07);
+      padding: 4px 10px; border-radius: var(--landing-radius-full);
+      border: 1px solid rgba(37,99,235,0.15);
+      display: flex; align-items: center;
+      letter-spacing: 0.2px;
+    }
+    @media (max-width: 768px) {
+      .featured-projects-section { padding: 72px 20px; }
+      .projects-title { font-size: 32px; }
+      .projects-grid { grid-template-columns: 1fr; gap: 20px; }
+      .project-content { padding: 22px; }
+    }
+
+    /* EXPERIENCE */
+    .experience-section {
+      background-color: var(--landing-foreground);
+      padding: 96px 32px;
+      display: flex; flex-direction: column;
+      align-items: center; width: 100%; overflow: hidden;
+      position: relative;
+    }
+    .experience-section::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg,transparent,var(--landing-secondary),transparent);
+    }
+    .experience-container {
+      width: 100%; max-width: 900px;
+      display: flex; flex-direction: column;
+    }
+    .experience-header {
+      display: flex; flex-direction: column;
+      align-items: center; text-align: center;
+      margin-bottom: 72px; width: 100%;
+    }
+    .experience-title {
+      font-family: var(--landing-font-family-secondary);
+      color: var(--landing-text);
+      font-size: 40px; font-weight: 800;
+      margin: 0 0 16px; letter-spacing: -1px; line-height: 1.15;
+    }
+    .experience-desc {
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text-muted);
+      font-size: 16px; line-height: 1.7;
+      max-width: 520px; margin: 0;
+    }
+    .timeline {
+      display: flex; flex-direction: column;
+      position: relative; width: 100%; padding: 16px 0;
+    }
+    .timeline-line {
+      position: absolute; top: 0; bottom: 0;
+      left: 50%; width: 2px;
+      background: linear-gradient(180deg, var(--landing-primary) 0%, var(--landing-secondary) 100%);
+      transform: translateX(-50%); z-index: 1;
+    }
+    .timeline-item {
+      display: flex; flex-direction: row;
+      justify-content: flex-end; padding-right: 50%;
+      position: relative; margin-bottom: 48px; width: 100%;
+    }
+    .timeline-item:nth-child(even) {
+      justify-content: flex-start;
+      padding-right: 0; padding-left: 50%;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-node {
+      position: absolute; top: 16px; left: 50%;
+      transform: translateX(-50%);
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid var(--landing-primary);
+      box-shadow: 0 0 0 4px rgba(37,99,235,0.10);
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    .timeline-item:hover .timeline-node {
+      background: var(--landing-primary);
+      box-shadow: 0 0 0 6px rgba(37,99,235,0.15);
+      transform: translateX(-50%) scale(1.2);
+    }
+    .timeline-content {
+      background-color: var(--landing-background);
+      padding: 28px 32px;
+      border-radius: 16px;
+      width: calc(100% - 52px);
+      display: flex; flex-direction: column;
+      border: 1px solid var(--landing-secondary);
+      position: relative;
+      transition: all 0.3s ease; z-index: 3;
+      box-shadow: var(--landing-shadow-sm);
+    }
+    .timeline-item:nth-child(odd)  .timeline-content { margin-right: 52px; }
+    .timeline-item:nth-child(even) .timeline-content { margin-left:  52px; }
+    .timeline-item:hover .timeline-content {
+      border-color: rgba(37,99,235,0.2);
+      box-shadow: var(--landing-shadow-lg);
+      transform: translateY(-4px);
+    }
+    .timeline-meta {
+      display: flex; flex-direction: row;
+      justify-content: space-between; align-items: center;
+      margin-bottom: 14px; width: 100%;
+    }
+    .timeline-date {
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-primary);
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+    }
+    .timeline-category {
+      background: rgba(37,99,235,0.07);
+      color: var(--landing-primary);
+      padding: 4px 12px; border-radius: var(--landing-radius-full);
+      font-family: var(--landing-font-family-primary);
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      border: 1px solid rgba(37,99,235,0.15);
+    }
+    .timeline-item-title {
+      font-family: var(--landing-font-family-secondary);
+      color: var(--landing-text);
+      font-size: 18px; font-weight: 700;
+      margin: 0 0 12px; line-height: 1.4;
+    }
+    .timeline-text {
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text-muted);
+      font-size: 14px; line-height: 1.7; margin: 0;
+    }
+    .timeline-list {
+      display: flex; flex-direction: column;
+      margin: 0; padding: 0; list-style: none; gap: 10px;
+    }
+    .timeline-list-item {
+      display: flex; flex-direction: row;
+      align-items: flex-start;
+      font-family: var(--landing-font-family-primary);
+      color: var(--landing-text-muted);
+      font-size: 14px; line-height: 1.6;
+    }
+    .timeline-list-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 20px; height: 22px;
+      margin-right: 10px; flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .experience-section { padding: 72px 20px; }
+      .experience-title { font-size: 32px; }
+      .timeline-line { left: 16px; transform: none; }
+      .timeline-item, .timeline-item:nth-child(even) {
+        justify-content: flex-start;
+        padding-left: 44px; padding-right: 0;
+      }
+      .timeline-node { left: 16px; transform: translateX(-50%); top: 20px; }
+      .timeline-item:hover .timeline-node { transform: translateX(-50%) scale(1.2); }
+      .timeline-item:nth-child(odd) .timeline-content,
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: 0; margin-right: 0;
+        width: 100%; padding: 22px 20px;
+      }
+      .timeline-meta { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+
+    /* FOOTER */
+    .portfolio-footer {
+      background-color: #0f172a;
+      color: #e2e8f0;
+      font-family: var(--landing-font-family-primary);
+      padding: 72px 32px 32px; width: 100%;
+    }
+    .footer-container {
+      max-width: 1200px; width: 100%;
+      margin: 0 auto;
+      display: flex; flex-direction: column; gap: 48px;
+    }
+    .footer-top {
+      display: flex; flex-direction: row;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 48px;
+    }
+    .footer-brand {
+      display: flex; flex-direction: column;
+      gap: 12px; max-width: 360px; width: 100%;
+    }
+    .brand-name {
+      font-family: var(--landing-font-family-secondary);
+      font-size: 22px; font-weight: 800;
+      color: #fff; margin: 0; letter-spacing: -0.3px;
+    }
+    .brand-title {
+      font-size: 14px; font-weight: 500;
+      color: #60a5fa; margin: 0;
+    }
+    .footer-contact {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .contact-heading {
+      font-family: var(--landing-font-family-secondary);
+      font-size: 15px; font-weight: 700;
+      color: #fff; margin: 0 0 4px;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .contact-link, .contact-info {
+      display: flex; flex-direction: row;
+      align-items: center; gap: 10px;
+      color: #94a3b8; text-decoration: none;
+      font-size: 14px; transition: color 0.2s;
+    }
+    .contact-link:hover { color: #60a5fa; }
+    .contact-link svg, .contact-info svg {
+      width: 16px; height: 16px;
+      fill: #475569; flex-shrink: 0; transition: fill 0.2s;
+    }
+    .contact-link:hover svg { fill: #60a5fa; }
+    .footer-nav {
+      display: flex; flex-direction: row;
+      flex-wrap: wrap; gap: 24px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-link {
+      color: #64748b; text-decoration: none;
+      font-size: 14px; font-weight: 500;
+      transition: color 0.2s; padding: 4px 0;
+    }
+    .nav-link:hover { color: #60a5fa; }
+    .footer-bottom {
+      display: flex; flex-direction: row;
+      justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 20px;
+    }
+    .copyright { color: #475569; font-size: 13px; margin: 0; }
+    .footer-social {
+      display: flex; flex-direction: row;
+      gap: 10px; align-items: center;
+    }
+    .social-link {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--landing-radius-sm);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .social-link svg { width: 16px; height: 16px; fill: #94a3b8; }
+    .social-link:hover {
+      background: var(--landing-primary);
+      border-color: var(--landing-primary);
+      transform: translateY(-2px);
+    }
+    .social-link:hover svg { fill: #fff; }
+    .back-to-top {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      background: var(--landing-primary);
+      border: none; border-radius: var(--landing-radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(37,99,235,0.30);
+    }
+    .back-to-top svg { width: 18px; height: 18px; fill: #fff; }
+    .back-to-top:hover {
+      background: var(--landing-hover);
+      transform: translateY(-2px);
+    }
+    @media (max-width: 768px) {
+      .portfolio-footer { padding: 56px 20px 28px; }
+      .footer-top { flex-direction: column; gap: 36px; }
+      .footer-brand { align-items: center; text-align: center; margin: 0 auto; }
+      .footer-contact { align-items: center; text-align: center; }
+      .footer-nav { flex-direction: column; align-items: center; gap: 12px; padding-bottom: 28px; }
+      .footer-bottom { flex-direction: column-reverse; align-items: center; text-align: center; gap: 20px; }
+    }
+
+    .section-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--landing-secondary), transparent);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<section class="navbar-section">
+  <div class="navbar-container">
+    <a href="#hero" class="navbar-brand">Davis Ardo Bareto</a>
+    <button class="navbar-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="navbar-menu" id="nav-menu">
+      <nav class="navbar-links">
+        <a href="#hero"          data-i18n="nav_hero">Hero</a>
+        <a href="#competencies"  data-i18n="nav_competencies">Kompetensi</a>
+        <a href="#projects"      data-i18n="nav_projects">Proyek</a>
+        <a href="#experience"    data-i18n="nav_experience">Pengalaman</a>
+        <a href="#contact"       data-i18n="nav_contact">Kontak</a>
+      </nav>
+      <div class="navbar-actions">
+        <a href="https://github.com/Davisardo" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" fill="currentColor"/></svg>
+          GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/davis-ardo" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="currentColor"/><rect x="2" y="9" width="4" height="12" fill="currentColor"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
+          LinkedIn
+        </a>
+        <div class="lang-switch">
+          <button class="lang-btn" id="btn-id">ID</button>
+          <button class="lang-btn active" id="btn-en">EN</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero-section" id="hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <span class="hero-badge">Open to Work · Data Analyst</span>
+      <h1 class="hero-title">
+        Davis Ardo Bareto
+        <span class="highlight" data-i18n="hero_subtitle">Data Analyst &amp; Power BI Developer</span>
+      </h1>
+      <p class="hero-description" data-i18n="hero_desc">"Mengubah data menjadi insight yang actionable untuk mendukung keputusan bisnis berbasis data."</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">6+</span>
+          <span class="hero-stat-label">Projects</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">3+</span>
+          <span class="hero-stat-label">Certifications</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">89K+</span>
+          <span class="hero-stat-label">Data Processed</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="https://github.com/Davisardo" class="btn btn-primary" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_github">Lihat GitHub</a>
+        <a href="https://www.linkedin.com/in/davis-ardo" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <div class="glow-effect"></div>
+      <img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/cc087792-008a-44f5-af61-f59c8a85398a.webp" alt="Davis Ardo Bareto" class="profile-img">
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="competencies" class="skills-section">
+  <div class="skills-bg-glow"></div>
+  <div class="skills-container">
+    <div class="skills-header">
+      <span class="section-label">Skills</span>
+      <h2 class="skills-title">Technical &amp; <span class="skills-title-highlight" data-i18n="skills_highlight">Core Skills</span></h2>
+      <p class="skills-description" data-i18n="skills_desc">"Keahlian dalam pengolahan, pemodelan, dan visualisasi data untuk menghasilkan insight bisnis yang mendukung pengambilan keputusan."</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card" data-progress="95">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M4 10h3v10H4V10zm5-6h3v16H9V4zm5 10h3v6h-3v-6zm5-4h3v10h-3v-10z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name">Power BI</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="90">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 4.02 2 6.5c0 2.14 3.4 3.94 8 4.38v2.24c-4.6-.44-8-2.24-8-4.38v4.76c0 2.48 4.48 4.5 10 4.5s10-2.02 10-4.5V6.5C22 4.02 17.52 2 12 2zm0 7c-4.41 0-8-1.57-8-3.5S7.59 2 12 2s8 1.57 8 3.5-3.59 3.5-8 3.5zm0 11c-4.41 0-8-1.57-8-3.5v-2.18c2.18 1.05 4.93 1.68 8 1.68s5.82-.63 8-1.68V16.5c0 1.93-3.59 3.5-8 3.5z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name">SQL</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="85">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M12 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name">Python</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="95">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 16H5v-4h6v4zm0-6H5V9h6v4zm8 6h-6v-4h6v4zm0-6h-6V9h6v4z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name" data-i18n="skill_excel">Advanced Excel</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="90">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name" data-i18n="skill_dataviz">Data Visualization</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="80">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name" data-i18n="skill_datamodel">Data Modeling</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="80">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name">Google Looker Studio</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+      <div class="skill-card" data-progress="85">
+        <div class="skill-icon-wrapper"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/></svg></div>
+        <div class="skill-content"><h3 class="skill-name">Business Intelligence</h3><div class="skill-progress-bg"><div class="skill-progress-bar"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="featured-projects-section">
+  <div class="projects-container">
+    <header class="projects-header">
+      <span class="section-label">Portfolio</span>
+      <h2 class="projects-title" data-i18n="projects_title">Proyek Berbasis Data</h2>
+      <p class="projects-description" data-i18n="projects_desc">"Portofolio proyek analitik yang berfokus pada pengolahan data dan penyajian insight bisnis."</p>
+    </header>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-image-container"><img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/bda9e597-7db1-4a8e-9a66-49fa9a3defa9.webp" alt="Automotive Sales Performance Dashboard" class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Automotive Sales Performance Dashboard <span style="font-size:13px;font-weight:500;color:#94a3b8;">(Personal Project)</span></h3>
+          <p class="project-details" data-i18n="proj1_desc">"Dashboard berbasis data untuk menganalisis performa penjualan otomotif dari sisi produk, dealer, dan wilayah guna menghasilkan insight bisnis yang relevan dan mendukung strategi pengambilan keputusan."</p>
+          <div class="project-tags"><span class="project-tag">Data Analysis</span><span class="project-tag">Power BI</span><span class="project-tag">Data Visualization</span><span class="project-tag">Data Modeling</span><span class="project-tag">DAX</span><span class="project-tag">Advanced Excel</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image-container"><img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/05f3c4bc-94f7-407e-a1d9-6c80e7d813ef.webp" alt="Customer & Banking Performance Dashboard" class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Customer &amp; Banking Performance Dashboard <span style="font-size:13px;font-weight:500;color:#94a3b8;">(Personal Project)</span></h3>
+          <p class="project-details" data-i18n="proj2_desc">"Mendesain dashboard interaktif menggunakan Power BI untuk menganalisis data nasabah dan keuangan secara komprehensif, menampilkan metrik utama guna mendukung pengambilan keputusan bisnis."</p>
+          <div class="project-tags"><span class="project-tag">Data Analysis</span><span class="project-tag">Power BI</span><span class="project-tag">DAX</span><span class="project-tag">Data Modeling</span><span class="project-tag">Financial Analytics</span><span class="project-tag">Financial Analysis</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-image-container"><img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/7cf8ad53-a733-48f7-8c3a-07154f515e45.webp" alt="Data Transformation & Time Reporting" class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Data Transformation &amp; Time Reporting <span style="font-size:13px;font-weight:500;color:#94a3b8;">(Australian Client)</span></h3>
+          <p class="project-details" data-i18n="proj3_desc">"Mengolah 6.000+ data shift menggunakan Power Query untuk meningkatkan akurasi pelaporan jam kerja operasional tim harian secara otomatis."</p>
+          <div class="project-tags"><span class="project-tag">Power Query</span><span class="project-tag">Microsoft Excel</span><span class="project-tag">Reporting</span><span class="project-tag">Data Transformation</span><span class="project-tag">Data Cleaning</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image-container"><img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/35fff466-b2e9-4add-82b6-aab25fc4bb99.webp" alt="Credit Card Customer Analytics Dashboard" class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Credit Card Customer Analytics Dashboard <span style="font-size:13px;font-weight:500;color:#94a3b8;">(Personal Project)</span></h3>
+          <p class="project-details" data-i18n="proj4_desc">"Mengembangkan dashboard Power BI untuk menganalisis data pelanggan kartu kredit, mencakup KPI utama seperti transaksi, risiko kredit, dan kepuasan pelanggan guna menghasilkan insight berbasis data."</p>
+          <div class="project-tags"><span class="project-tag">Data Analysis</span><span class="project-tag">SQL</span><span class="project-tag">Power BI</span><span class="project-tag">Risk Analysis</span><span class="project-tag">Data Cleaning</span><span class="project-tag">Data Modeling</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="projects-grid">
+      <article class="project-card">
+        <div class="project-image-container"><img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/c7eae6a0-4e48-4bec-a221-1f4686d9f888.webp" alt="Amazon Product Sales Dashboard" class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Amazon Product Sales Dashboard <span style="font-size:13px;font-weight:500;color:#94a3b8;">(Personal Project)</span></h3>
+          <p class="project-details" data-i18n="proj5_desc">"Mengembangkan dashboard Power BI untuk menganalisis 89.000+ data penjualan produk Amazon, mencakup KPI seperti YTD, QTD, dan performa produk guna menghasilkan insight bisnis."</p>
+          <div class="project-tags"><span class="project-tag">Data Analysis</span><span class="project-tag">SQL</span><span class="project-tag">Power BI</span><span class="project-tag">Data Modeling</span><span class="project-tag">Data Visualization</span><span class="project-tag">DAX</span><span class="project-tag">Sales Analytics</span></div>
+        </div>
+      </article>
+      <article class="project-card">
+        <div class="project-image-container"><img src="https://s3.amazonaws.com/media-prod.butternut.ai/website_images/69cb450e9bef47db168b5b3d/ad4dcc92-0209-4d57-8ebe-576badeeb94a.webp" alt="Sales Performance Dashboard" class="project-image"></div>
+        <div class="project-content">
+          <h3 class="project-title">Sales Performance Dashboard <span style="font-size:13px;font-weight:500;color:#94a3b8;">(Personal Project)</span></h3>
+          <p class="project-details" data-i18n="proj6_desc">"Mengembangkan dashboard Power BI untuk menganalisis kinerja penjualan berdasarkan produk, wilayah, dan segmen, menghasilkan insight terkait profitabilitas dan strategi bisnis."</p>
+          <div class="project-tags"><span class="project-tag">Data Analysis</span><span class="project-tag">SQL</span><span class="project-tag">Power BI</span><span class="project-tag">Data Modeling</span><span class="project-tag">Data Visualization</span><span class="project-tag">DAX</span><span class="project-tag">Sales Analytics</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="experience-section">
+  <div class="experience-container">
+    <div class="experience-header">
+      <span class="section-label">Career</span>
+      <h2 class="experience-title" data-i18n="exp_title">Perjalanan Profesional</h2>
+      <p class="experience-desc" data-i18n="exp_desc">"Pengalaman kerja dan sertifikasi intensif di bidang Data Analytics."</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-date">2024 – 2025</span>
+            <span class="timeline-category" data-i18n="exp_cat_exp">Pengalaman</span>
+          </div>
+          <h3 class="timeline-item-title" data-i18n="exp1_title">Spesialis Operasional Event &amp; Administrasi</h3>
+          <p class="timeline-text" data-i18n="exp1_desc">"Mengelola data dan laporan operasional event menggunakan Advanced Excel."</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <div class="timeline-meta">
+            <span class="timeline-date" data-i18n="exp_continuous">Pembelajaran Berkelanjutan</span>
+            <span class="timeline-category" data-i18n="exp_cat_cert">Sertifikasi</span>
+          </div>
+          <h3 class="timeline-item-title" data-i18n="exp2_title">Sertifikasi Data Analytics</h3>
+          <ul class="timeline-list">
+            <li class="timeline-list-item">
+              <div class="timeline-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--landing-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Bootcamp Data Analysis (MySkill)</span>
+            </li>
+            <li class="timeline-list-item">
+              <div class="timeline-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--landing-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Advanced Power BI (Udemy)</span>
+            </li>
+            <li class="timeline-list-item">
+              <div class="timeline-list-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--landing-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <span>Python for Data Analysis (MySkill)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="portfolio-footer" id="contact">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h2 class="brand-name">Davis Ardo Bareto</h2>
+        <p class="brand-title">Data Analyst &amp; Power BI Developer</p>
+      </div>
+      <div class="footer-contact">
+        <h3 class="contact-heading" data-i18n="footer_contact_title">Informasi Kontak</h3>
+        <span class="contact-info">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          davisardo6@gmail.com
+        </span>
+        <a href="tel:+6285816168088" class="contact-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          +62 858-1616-8088
+        </a>
+        <span class="contact-info">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Banyuwangi, Jawa Timur
+        </span>
+      </div>
+    </div>
+    <nav class="footer-nav">
+      <a href="#hero"         class="nav-link" data-i18n="nav_hero">Hero</a>
+      <a href="#competencies" class="nav-link" data-i18n="nav_competencies">Kompetensi</a>
+      <a href="#projects"     class="nav-link" data-i18n="nav_projects">Proyek</a>
+      <a href="#experience"   class="nav-link" data-i18n="nav_experience">Pengalaman</a>
+      <a href="#contact"      class="nav-link" data-i18n="nav_contact">Kontak</a>
+    </nav>
+    <div class="footer-bottom">
+      <p class="copyright">&copy; 2025 Davis Ardo Bareto. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://github.com/Davisardo" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/davis-ardo" target="_blank" rel="noopener noreferrer" class="social-link">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" fill="currentColor"/><rect x="2" y="9" width="4" height="12" fill="currentColor"/><circle cx="4" cy="4" r="2" fill="currentColor"/></svg>
+        </a>
+        <button class="back-to-top" id="back-to-top">
+          <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6 1.41 1.41z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+
+  var translations = {
+    id: {
+      nav_hero: 'Hero', nav_competencies: 'Kompetensi', nav_projects: 'Proyek',
+      nav_experience: 'Pengalaman', nav_contact: 'Kontak',
+      hero_subtitle: 'Data Analyst & Power BI Developer',
+      hero_desc: '"Mengubah data menjadi insight yang actionable untuk mendukung keputusan bisnis berbasis data."',
+      hero_btn_github: 'Lihat GitHub',
+      skills_highlight: 'Core Skills',
+      skills_desc: '"Keahlian dalam pengolahan, pemodelan, dan visualisasi data untuk menghasilkan insight bisnis yang mendukung pengambilan keputusan."',
+      skill_excel: 'Advanced Excel', skill_dataviz: 'Data Visualization', skill_datamodel: 'Data Modeling',
+      projects_title: 'Proyek Berbasis Data',
+      projects_desc: '"Portofolio proyek analitik yang berfokus pada pengolahan data dan penyajian insight bisnis."',
+      proj1_desc: '"Dashboard berbasis data untuk menganalisis performa penjualan otomotif dari sisi produk, dealer, dan wilayah guna menghasilkan insight bisnis yang relevan dan mendukung strategi pengambilan keputusan."',
+      proj2_desc: '"Mendesain dashboard interaktif menggunakan Power BI untuk menganalisis data nasabah dan keuangan secara komprehensif, menampilkan metrik utama guna mendukung pengambilan keputusan bisnis."',
+      proj3_desc: '"Mengolah 6.000+ data shift menggunakan Power Query untuk meningkatkan akurasi pelaporan jam kerja operasional tim harian secara otomatis."',
+      proj4_desc: '"Mengembangkan dashboard Power BI untuk menganalisis data pelanggan kartu kredit, mencakup KPI utama seperti transaksi, risiko kredit, dan kepuasan pelanggan guna menghasilkan insight berbasis data."',
+      proj5_desc: '"Mengembangkan dashboard Power BI untuk menganalisis 89.000+ data penjualan produk Amazon, mencakup KPI seperti YTD, QTD, dan performa produk guna menghasilkan insight bisnis."',
+      proj6_desc: '"Mengembangkan dashboard Power BI untuk menganalisis kinerja penjualan berdasarkan produk, wilayah, dan segmen, menghasilkan insight terkait profitabilitas dan strategi bisnis."',
+      exp_title: 'Perjalanan Profesional',
+      exp_desc: '"Pengalaman kerja dan sertifikasi intensif di bidang Data Analytics."',
+      exp_cat_exp: 'Pengalaman', exp1_title: 'Spesialis Operasional Event & Administrasi',
+      exp1_desc: '"Mengelola data dan laporan operasional event menggunakan Advanced Excel."',
+      exp_continuous: 'Pembelajaran Berkelanjutan', exp_cat_cert: 'Sertifikasi',
+      exp2_title: 'Sertifikasi Data Analytics',
+      footer_contact_title: 'Informasi Kontak'
+    },
+    en: {
+      nav_hero: 'Hero', nav_competencies: 'Competencies', nav_projects: 'Projects',
+      nav_experience: 'Experience', nav_contact: 'Contact',
+      hero_subtitle: 'Data Analyst & Power BI Developer',
+      hero_desc: '"Transforming data into actionable insights to support data-driven business decisions."',
+      hero_btn_github: 'View GitHub',
+      skills_highlight: 'Core Skills',
+      skills_desc: '"Expertise in data processing, modeling, and visualization to generate business insights that support decision-making."',
+      skill_excel: 'Advanced Excel', skill_dataviz: 'Data Visualization', skill_datamodel: 'Data Modeling',
+      projects_title: 'Data-Driven Projects',
+      projects_desc: '"A portfolio of analytics projects focused on data processing and presenting business insights."',
+      proj1_desc: '"A data-driven dashboard to analyze automotive sales performance by product, dealer, and region to generate relevant business insights and support strategic decision-making."',
+      proj2_desc: '"Designed an interactive Power BI dashboard to comprehensively analyze customer and financial data, displaying key metrics to support business decision-making."',
+      proj3_desc: '"Processed 6,000+ shift records using Power Query to automatically improve the accuracy of daily operational team work-hour reporting."',
+      proj4_desc: '"Developed a Power BI dashboard to analyze credit card customer data, covering key KPIs such as transactions, credit risk, and customer satisfaction to generate data-driven insights."',
+      proj5_desc: '"Developed a Power BI dashboard to analyze 89,000+ Amazon product sales records, covering KPIs like YTD, QTD, and product performance to generate business insights."',
+      proj6_desc: '"Developed a Power BI dashboard to analyze sales performance by product, region, and segment, generating insights related to profitability and business strategy."',
+      exp_title: 'Professional Journey',
+      exp_desc: '"Work experience and intensive certifications in the field of Data Analytics."',
+      exp_cat_exp: 'Experience', exp1_title: 'Event Operations & Administration Specialist',
+      exp1_desc: '"Managed event operational data and reports using Advanced Excel."',
+      exp_continuous: 'Continuous Learning', exp_cat_cert: 'Certifications',
+      exp2_title: 'Data Analytics Certifications',
+      footer_contact_title: 'Contact Information'
+    }
+  };
+
+  function changeLang(lang) {
+    var t = translations[lang];
+    if (!t) return;
+    var els = document.querySelectorAll('[data-i18n]');
+    for (var i = 0; i < els.length; i++) {
+      var key = els[i].getAttribute('data-i18n');
+      if (t[key] !== undefined) els[i].innerText = t[key];
+    }
+    var bId = document.getElementById('btn-id');
+    var bEn = document.getElementById('btn-en');
+    if (bId) bId.className = (lang === 'id') ? 'lang-btn active' : 'lang-btn';
+    if (bEn) bEn.className = (lang === 'en') ? 'lang-btn active' : 'lang-btn';
+    document.documentElement.lang = lang;
+  }
+
+  function attachLangButtons() {
+    var bId = document.getElementById('btn-id');
+    var bEn = document.getElementById('btn-en');
+    if (bId) bId.addEventListener('click', function () { changeLang('id'); });
+    if (bEn) bEn.addEventListener('click', function () { changeLang('en'); });
+  }
+
+  function attachNavToggle() {
+    var navToggle = document.getElementById('nav-toggle');
+    var navMenu   = document.getElementById('nav-menu');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', function () {
+        var isOpen = navMenu.classList.contains('is-open');
+        navMenu.classList.toggle('is-open', !isOpen);
+        navToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+  }
+
+  function attachBackToTop() {
+    var topBtn = document.getElementById('back-to-top');
+    if (topBtn) {
+      topBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  }
+
+  function attachSkillAnimation() {
+    var skillCards = document.querySelectorAll('.skill-card');
+    if (!skillCards.length || typeof IntersectionObserver === 'undefined') return;
+    var skillObs = new IntersectionObserver(function (entries, obs) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        var card = entries[i].target;
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        var bar  = card.querySelector('.skill-progress-bar');
+        var prog = card.getAttribute('data-progress');
+        if (bar && prog) {
+          (function (b, p) {
+            setTimeout(function () { b.style.width = p + '%'; }, 300);
+          })(bar, prog);
+        }
+        obs.unobserve(card);
+      }
+    }, { threshold: 0.15 });
+    for (var i = 0; i < skillCards.length; i++) {
+      skillCards[i].style.opacity   = '0';
+      skillCards[i].style.transform = 'translateY(24px)';
+      skillCards[i].style.transition =
+        'opacity 0.5s ease ' + (i * 0.08) + 's,' +
+        'transform 0.5s ease ' + (i * 0.08) + 's,' +
+        'border-color 0.3s,box-shadow 0.3s';
+      skillObs.observe(skillCards[i]);
+    }
+  }
+
+  function attachTimelineAnimation() {
+    var tlItems = document.querySelectorAll('.timeline-item');
+    if (!tlItems.length || typeof IntersectionObserver === 'undefined') return;
+    var tlObs = new IntersectionObserver(function (entries, obs) {
+      for (var i = 0; i < entries.length; i++) {
+        if (!entries[i].isIntersecting) continue;
+        entries[i].target.style.opacity   = '1';
+        entries[i].target.style.transform = 'translateY(0)';
+        obs.unobserve(entries[i].target);
+      }
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.1 });
+    for (var j = 0; j < tlItems.length; j++) {
+      tlItems[j].style.opacity   = '0';
+      tlItems[j].style.transform = 'translateY(24px)';
+      tlItems[j].style.transition = 'opacity 0.6s ease ' + (j * 0.1) + 's, transform 0.6s ease ' + (j * 0.1) + 's';
+      tlObs.observe(tlItems[j]);
+    }
+  }
+
+  function init() {
+    attachLangButtons();
+    attachNavToggle();
+    attachBackToTop();
+    attachSkillAnimation();
+    attachTimelineAnimation();
+    changeLang('en');
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+</body>
+</html>
